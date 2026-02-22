@@ -1,172 +1,143 @@
-📘 VIPS Veritas — Student Feedback Platform
+# 📘 VIPS Veritas --- Student Feedback Platform
 
-Speak • Reflect • Improve
+> **Speak • Reflect • Improve**
 
-VIPS Veritas is a modern Flutter-based mobile application designed to provide students with a structured and intuitive platform to submit and manage academic feedback. The app promotes transparent communication and continuous improvement within educational institutions by enabling organized feedback collection and review.
+VIPS Veritas is a modern Flutter-based mobile application designed to
+provide students with a structured and intuitive platform to submit and
+manage academic feedback. The app promotes transparent communication and
+continuous improvement within educational institutions by enabling
+organized feedback collection and review.
 
-✨ Features
-🏠 Home Dashboard
+------------------------------------------------------------------------
 
-Introduction to VIPS and the purpose of the application
+## ✨ Features
 
-Clean, modern UI with institutional branding
+### 🏠 Home Dashboard
 
-Glassmorphism design with soft gradient theme
+-   Introduction to VIPS and the purpose of the application
+-   Clean, modern UI with institutional branding
+-   Glassmorphism design with soft gradient theme
 
-📝 Give Feedback
+### 📝 Give Feedback
 
-Structured feedback submission form
+-   Structured feedback submission form
+-   Student Name, Batch, Course, and Feedback Category inputs
+-   Dynamic form behavior (Teacher name required only for teacher
+    feedback)
+-   ⭐ Interactive 5-star rating system
+-   Smooth animations and submission confirmation
 
-Input fields include:
+### 📋 View Feedback
 
-Student Name
+-   Displays previously submitted feedback
+-   Modern feedback cards with category overview and ratings
+-   Options menu:
+    -   View feedback
+    -   Edit feedback
+    -   Delete feedback (with confirmation)
 
-Batch selection
+### 👤 Profile Section
 
-Course selection
+-   Animated gradient background
+-   Glassmorphism info cards
+-   LinkedIn and GitHub integration
+-   Developer badge and app version display
 
-Feedback category
+------------------------------------------------------------------------
 
-Dynamic form behavior:
+## 🎨 UI & Design Highlights
 
-Teacher name required only for teacher feedback
+-   Custom green aesthetic color system
+-   Animated gradient backgrounds
+-   Glassmorphism card effects
+-   Modern typography using Google Fonts
+-   Smooth transitions and micro-animations
 
-⭐ Interactive 5-star rating system
+------------------------------------------------------------------------
 
-Smooth animations and submission confirmation
+## 🛠️ Tech Stack
 
-📋 View Feedback
+  Technology           Usage
+  -------------------- -----------------------------------
+  Flutter              Cross-platform mobile development
+  Dart                 Application logic
+  Material 3           UI framework
+  Google Fonts         Typography
+  url_launcher         External profile links
+  Flutter Animations   UI transitions
 
-Displays previously submitted feedback
+------------------------------------------------------------------------
 
-Modern feedback cards with:
+## 🚀 Installation
 
-Category overview
+### 1️⃣ Clone Repository
 
-Teacher name (if applicable)
+    git clone https://github.com/KunshSabharwal/VIPS-Veritas.git
+    cd VIPS-Veritas
 
-Rating display
+### 2️⃣ Install Dependencies
 
-Options menu:
+    flutter pub get
 
-View feedback
+### 3️⃣ Run Application
 
-Edit feedback
+    flutter run
 
-Delete feedback (with confirmation)
+### 4️⃣ Build APK
 
-👤 Profile Section
-
-Developer profile with animated gradient background
-
-Glassmorphism info cards
-
-Direct links to:
-
-LinkedIn
-
-GitHub
-
-Developer badge and app version display
-
-🎨 UI & Design Highlights
-
-Custom green aesthetic color system
-
-Animated gradient backgrounds across screens
-
-Glassmorphism card effects
-
-Modern typography using Google Fonts
-
-Smooth transitions and micro-animations
-
-Consistent theme applied across entire app
-
-🛠️ Tech Stack
-Technology Usage
-Flutter Cross-platform mobile development
-Dart Application logic
-Material 3 UI framework
-Google Fonts Modern typography
-url_launcher External profile links
-Flutter Animations UI transitions & effects
-📱 Screenshots
-
-(Add screenshots here after uploading images to repo)
-
-assets/screenshots/home.png
-assets/screenshots/feedback.png
-assets/screenshots/profile.png
-🚀 Installation
-1️⃣ Clone Repository
-git clone https://github.com/KunshSabharwal/VIPS-Veritas.git
-cd VIPS-Veritas
-2️⃣ Install Dependencies
-flutter pub get
-3️⃣ Run Application
-flutter run
-4️⃣ Build APK
-flutter build apk --release
+    flutter build apk --release
 
 APK location:
 
-build/app/outputs/flutter-apk/app-release.apk
-📂 Project Structure
-lib/
-│
-├── models/ # Feedback data models
-├── screens/ # App screens
-│ ├── splash_screen.dart
-│ ├── login_screen.dart
-│ ├── home_screen.dart
-│ ├── feedback_form_screen.dart
-│ ├── feedback_list_screen.dart
-│ └── profile_screen.dart
-│
-├── theme/ # Global theme & colors
-└── main.dart # App entry point
-🎯 Purpose
+    build/app/outputs/flutter-apk/app-release.apk
 
-This application was developed as part of a Mobile Application Development (MAD) practical project to demonstrate:
+------------------------------------------------------------------------
 
-Flutter UI design principles
+## 📂 Project Structure
 
-State management using local models
+    lib/
+    │
+    ├── models/
+    ├── screens/
+    │   ├── splash_screen.dart
+    │   ├── login_screen.dart
+    │   ├── home_screen.dart
+    │   ├── feedback_form_screen.dart
+    │   ├── feedback_list_screen.dart
+    │   └── profile_screen.dart
+    │
+    ├── theme/
+    └── main.dart
 
-Form validation and dynamic UI
+------------------------------------------------------------------------
 
-Modern mobile UX practices
+## 🎯 Purpose
 
-Animation and theming consistency
+This application was developed as part of a **Mobile Application
+Development (MAD)** practical project to demonstrate: - Flutter UI
+design principles - Form validation and dynamic UI - Modern mobile UX
+practices - Animation and theming consistency
 
-👨‍💻 Developer
+------------------------------------------------------------------------
 
-Kunsh Sabharwal
+## 👨‍💻 Developer
+
+**Kunsh Sabharwal**\
 Flutter Developer • AIML Student
 
-🔗 LinkedIn:
-https://www.linkedin.com/in/kunshsabharwal/
+LinkedIn: https://www.linkedin.com/in/kunshsabharwal/\
+GitHub: https://github.com/KunshSabharwal
 
-🔗 GitHub:
-https://github.com/KunshSabharwal
+------------------------------------------------------------------------
 
-📄 License
+## ⭐ Future Improvements
 
-This project is developed for educational and demonstration purposes.
+-   Backend integration (Firebase / Node.js)
+-   Authentication system
+-   Cloud feedback storage
+-   Admin dashboard
+-   Feedback analytics
 
-⭐ Future Improvements
+------------------------------------------------------------------------
 
-Backend integration (Firebase / Node.js)
-
-Authentication system
-
-Cloud feedback storage
-
-Admin dashboard
-
-Analytics for feedback insights
-
-💬 Tagline
-
-Empowering students to shape better learning experiences.
+> *Empowering students to shape better learning experiences.*
