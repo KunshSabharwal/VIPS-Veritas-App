@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  shared_preferences: ^2.2.2
   cupertino_icons: ^1.0.8
   url_launcher: ^6.2.5
   google_fonts: ^6.2.1
@@ -17,15 +17,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
 
   assets:
+    - assets/img/college1.png
+    - assets/img/college2.jpg
     - assets/logo.png
-    - assets/images/
 
 flutter_launcher_icons:
   android: true

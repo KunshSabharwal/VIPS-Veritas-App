@@ -39,15 +39,15 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
       duration: const Duration(milliseconds: 600),
     );
 
-    fadeAnimation = CurvedAnimation(
-      parent: _pageController,
-      curve: Curves.easeIn,
-    );
+    fadeAnimation =
+        CurvedAnimation(parent: _pageController, curve: Curves.easeIn);
 
     slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0.08),
       end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _pageController, curve: Curves.easeOut));
+    ).animate(
+      CurvedAnimation(parent: _pageController, curve: Curves.easeOut),
+    );
 
     _pageController.forward();
   }
@@ -58,7 +58,6 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
     super.dispose();
   }
 
-  /// 🧊 GLASS WRAPPER
   Widget glassSection(Widget child) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -73,7 +72,6 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
     );
   }
 
-  /// STAR RATING
   Widget buildStarRating() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +106,6 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
     );
   }
 
-  /// ---------- SUBMIT ----------
   Future<void> submitFeedback() async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -127,6 +124,8 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
         rating: rating.toDouble(),
       ),
     );
+
+    await FeedbackData.saveFeedbacks();
 
     setState(() => submitting = false);
 
@@ -153,7 +152,6 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
     });
   }
 
-  /// ---------- UI ----------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -168,6 +166,7 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
               child: ListView(
                 padding: const EdgeInsets.all(20),
                 children: [
+                  /// TITLE
                   const Center(
                     child: Text(
                       "Give Feedback",
@@ -178,17 +177,25 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                     ),
                   ),
 
+                  const SizedBox(height: 10),
+
+                  Text(
+                    "Your feedback matters. Tell us how we did. We would love to hear from you.",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Colors.black54,
+                        ),
+                  ),
+
                   const SizedBox(height: 24),
 
-                  /// 🧊 FORM CARD
                   glassSection(
                     Column(
                       children: [
                         TextFormField(
                           controller: nameController,
-                          decoration: const InputDecoration(
-                            labelText: "Student Name",
-                          ),
+                          decoration:
+                              const InputDecoration(labelText: "Student Name"),
                           validator: (v) => v!.isEmpty ? "Enter name" : null,
                         ),
                         const SizedBox(height: 16),
@@ -197,17 +204,11 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                           decoration: const InputDecoration(labelText: "Batch"),
                           items: const [
                             DropdownMenuItem(
-                              value: "2023-2027",
-                              child: Text("2023–2027"),
-                            ),
+                                value: "2023-2027", child: Text("2023–2027")),
                             DropdownMenuItem(
-                              value: "2024-2028",
-                              child: Text("2024–2028"),
-                            ),
+                                value: "2024-2028", child: Text("2024–2028")),
                             DropdownMenuItem(
-                              value: "2025-2029",
-                              child: Text("2025–2029"),
-                            ),
+                                value: "2025-2029", child: Text("2025–2029")),
                           ],
                           onChanged: (v) => setState(() => batch = v),
                           validator: (v) => v == null ? "Select batch" : null,
@@ -215,23 +216,16 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                         const SizedBox(height: 16),
                         DropdownButtonFormField<String>(
                           value: course,
-                          decoration: const InputDecoration(
-                            labelText: "Course",
-                          ),
+                          decoration:
+                              const InputDecoration(labelText: "Course"),
                           items: const [
                             DropdownMenuItem(
-                              value: "AIML",
-                              child: Text("AIML"),
-                            ),
+                                value: "AIML", child: Text("AIML")),
                             DropdownMenuItem(
-                              value: "AIDS",
-                              child: Text("AIDS"),
-                            ),
+                                value: "AIDS", child: Text("AIDS")),
                             DropdownMenuItem(value: "CSE", child: Text("CSE")),
                             DropdownMenuItem(
-                              value: "IIOT",
-                              child: Text("IIOT"),
-                            ),
+                                value: "IIOT", child: Text("IIOT")),
                           ],
                           onChanged: (v) => setState(() => course = v),
                           validator: (v) => v == null ? "Select course" : null,
@@ -240,29 +234,19 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                         DropdownButtonFormField<String>(
                           value: topic,
                           decoration: const InputDecoration(
-                            labelText: "Feedback Topic",
-                          ),
+                              labelText: "Feedback Topic"),
                           items: const [
                             DropdownMenuItem(
-                              value: "Teacher",
-                              child: Text("Teacher"),
-                            ),
+                                value: "Teacher", child: Text("Teacher")),
                             DropdownMenuItem(
-                              value: "Infrastructure",
-                              child: Text("Campus Infrastructure"),
-                            ),
+                                value: "Infrastructure",
+                                child: Text("Campus Infrastructure")),
                             DropdownMenuItem(
-                              value: "Timetable",
-                              child: Text("Timetable"),
-                            ),
+                                value: "Timetable", child: Text("Timetable")),
                             DropdownMenuItem(
-                              value: "Management",
-                              child: Text("Management"),
-                            ),
+                                value: "Management", child: Text("Management")),
                             DropdownMenuItem(
-                              value: "General",
-                              child: Text("General"),
-                            ),
+                                value: "General", child: Text("General")),
                           ],
                           onChanged: (v) => setState(() => topic = v),
                           validator: (v) => v == null ? "Select topic" : null,
@@ -272,8 +256,7 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                           TextFormField(
                             controller: teacherController,
                             decoration: const InputDecoration(
-                              labelText: "Teacher Name",
-                            ),
+                                labelText: "Teacher Name"),
                             validator: (v) =>
                                 v!.isEmpty ? "Enter teacher name" : null,
                           ),
@@ -288,26 +271,29 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
                           controller: feedbackController,
                           maxLines: 5,
                           decoration: const InputDecoration(
-                            labelText: "Write your feedback",
-                          ),
+                              labelText: "Write your feedback"),
                           validator: (v) =>
                               v!.isEmpty ? "Enter feedback" : null,
                         ),
                         const SizedBox(height: 26),
-                        AnimatedScale(
-                          duration: const Duration(milliseconds: 200),
-                          scale: submitting ? 0.95 : 1,
-                          child: SizedBox(
-                            height: 55,
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: submitting ? null : submitFeedback,
-                              child: submitting
-                                  ? const CircularProgressIndicator(
-                                      color: Colors.white,
-                                    )
-                                  : const Text("Submit Feedback"),
+                        SizedBox(
+                          height: 55,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF9DB88F),
+                              foregroundColor: Colors.black,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
                             ),
+                            onPressed: submitting ? null : submitFeedback,
+                            child: submitting
+                                ? const CircularProgressIndicator(
+                                    color: Colors.black, // loader visible
+                                  )
+                                : const Text("Submit Feedback"),
                           ),
                         ),
                       ],
@@ -323,7 +309,6 @@ class _FeedbackFormScreenState extends State<FeedbackFormScreen>
   }
 }
 
-/// ✅ PREMIUM SUCCESS DIALOG
 class SuccessDialog extends StatelessWidget {
   const SuccessDialog({super.key});
 

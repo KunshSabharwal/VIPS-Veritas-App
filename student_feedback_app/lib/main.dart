@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'theme/app_theme.dart';
 import 'screens/splash_screen.dart';
-import 'widgets/animated_app_background.dart';
+import 'models/feedback_data.dart';
+import 'theme/app_theme.dart';
 
-void main() {
-  runApp(const StudentFeedbackApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await FeedbackData.loadFeedbacks();
+
+  runApp(const MyApp());
 }
 
-class StudentFeedbackApp extends StatelessWidget {
-  const StudentFeedbackApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'VIPS Veritas',
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-
-      builder: (context, child) {
-        /// GLOBAL BACKGROUND APPLIED HERE
-        return AnimatedAppBackground(child: child ?? const SizedBox());
-      },
-
       home: const SplashScreen(),
     );
   }
